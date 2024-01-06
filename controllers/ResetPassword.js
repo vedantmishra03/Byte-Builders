@@ -1,6 +1,6 @@
 
-//resetPasswordToken=> for mail send
+//resetPasswordToken=> for mail send => generat a frontend link
 
 
-//resetPassword =>for reset the password
 
+//resetPassword =>for reset the password in db => update new password
