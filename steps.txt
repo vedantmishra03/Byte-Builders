@@ -1,0 +1,3 @@
+1....Created all the folders 
+2..config =>database.js bnaya 
+3. going to creted all the 9 models
