@@ -1,3 +1,7 @@
 1....Created all the folders 
 2..config =>database.js bnaya 
-3. going to creted all the 9 models
+//decided the schema and created the model
+3. going to created all the 9 models
+4. created controller for authentication and middleware for autherization
+5.created reset password controller
+

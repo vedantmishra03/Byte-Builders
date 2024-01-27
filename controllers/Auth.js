@@ -5,7 +5,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { response } = require("express");
 require("dotenv").config();
-//sendOTP => for signup 
+
+//sendOTP =>>> for signup 
 exports.sendOTP= async (req,res)=>{
     try {
          // fetch the email
@@ -25,7 +26,8 @@ exports.sendOTP= async (req,res)=>{
             lowerCaseAlphabets:false
         });
         console.log("OTP generated successfully", otp);
-        //check for unique otp=> // not a good code 
+        //check for unique otp=> // not a good code because we are interacting with db again and again for generating a unique otp
+
         let result=await OTP.findOne({otp: otp});
         while(result){
             otp=otpGenerator(6, { 
@@ -125,7 +127,7 @@ exports.signup= async (req,res)=>{
         // hash the password
     const hashPassword = await bcrypt.hash(password,10);
 
-        //// save imn db 
+        //// save in db 
 
         const profileDetails=await Profile.create({
             gender:null,
@@ -167,7 +169,8 @@ exports.login= async (req, res) => {
      try{ 
         // fetch the email,password
         const {email,password} = req.body;
-
+        
+        // both the details are must in req
         if(!email || !password) {
             return res.status(401).json({
                 success: false,
@@ -179,7 +182,7 @@ exports.login= async (req, res) => {
         if(!user) {
              return res.status(401).json({
                 success: false,
-                messager :"Please signup first",
+                messager :"Please signup first, before login",
              });
            }
 
